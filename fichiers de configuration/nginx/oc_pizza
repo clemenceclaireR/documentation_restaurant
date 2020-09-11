@@ -1,0 +1,12 @@
+server {
+	listen 80;
+	server_name xxx.xxx.xxx.xxx ocpizza.fr www.ocpizza.fr;
+	location = /favicon.ico f access log off; log not found off; }
+	location /static/ {
+	root /home/user/oc_pizza/oc_pizza;
+}
+location / {
+	include proxy params;
+	proxy pass http://unix:/run/gunicorn.sock;
+	}
+}
